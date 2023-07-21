@@ -38,10 +38,14 @@ const addTask = () => {
 };
 
 const removeTask = (index) => {
-  tasks.splice(index, 1);
-  savedTasks();
-  refreshTasks();
+  const confirmation = confirm("Are you sure you want to remove this task?");
+  if (confirmation) {
+    tasks.splice(index, 1);
+    savedTasks();
+    refreshTasks();
+  }
 };
+
 
 const toggleDone = (index) => {
   tasks[index].done = !tasks[index].done;
